@@ -1,57 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Web3.js Test</title>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.3.5/dist/web3.min.js"></script>
-</head>
-
-<body>
-    <h2>Web3.js Test</h2>
-    <hr />
-
-    <div>
-        <div>
-            <button id="web3_clientVersion">web3_clientVersion</button>
-        </div>
-    </div>
-
-    <script>
-        function showResult(node, msg) {
-            node.parent().append(" <span>" + msg + "</span>");
-        }
-
-        jQuery("#web3_clientVersion").click(async function () {
-            result = await ethereum.request({ method: "web3_clientVersion" });
-            showResult(jQuery("#web3_clientVersion"), result);
-        });
-        <div>
-    <button id="eth_requestAccounts">eth_requestAccounts</button>
-    </div>
-
-jQuery("#eth_requestAccounts").click(async function () {
-    requestAccounts = await ethereum.request({ method: 'eth_requestAccounts' });
-    showResult(jQuery("#eth_requestAccounts"), requestAccounts);
-});
-<div>
-    <button id="eth_sendTransaction">eth_sendTransaction</button>
-</div>
-
-jQuery("#eth_sendTransaction").click(async function () {
-    result = await ethereum.request({
-        method: "eth_sendTransaction",
-        params: [{
-            "from": "0xffffffffffffffffffffffffffffffffffffffff",
-            "to": "0x0000000000000000000000000000000000000000",
-            "value": web3.utils.numberToHex(web3.utils.toWei("1", "ether")),
-        }],
-    });
-    showResult(jQuery("#eth_sendTransaction"), result);
-});
-    </script>
-</body>
-
-
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="./src/assets/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JusTinSun</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
